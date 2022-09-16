@@ -8,9 +8,17 @@ class App extends React.Component {
     bad: 0
   }
 
+  handleBtnClick = (event) => {
+    const tartgetBtnName = event.target.name;
+
+    this.setState(prevState => ({
+      [tartgetBtnName]: prevState[tartgetBtnName] + 1
+    }))
+  }
+
   render() {
     return (
-      <Feedback values={this.state} />
+      <Feedback values={this.state} onClick={this.handleBtnClick} />
     )
   }
 };
